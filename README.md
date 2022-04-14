@@ -1,8 +1,8 @@
 # Courtney Than HW3
 ## How to run:
-### Download TheNode.java and Present_Chain.java
+### Download Node.java, PresentChain.java, and Main.java
 ### Open your command prompt and go to the directory of the folder that you have these files in
-### For problem 1: run "javac Present_Chain.java" in the command prompt
+### For problem 1: run "javac PresentChain.java" then "java PresentChain" in the command prompt
 ### The output then will appear on your terminal
 ## Problem 1: 
 ### The solution I came up with for this problem was using a concurrent linked list to have synchronization when inserting, deleting, and searching for nodes within the list. First I created the Node class which holds the data for the tag value of the present, the pointer to the next present, a flag that indicates whether or not a node has logically been deleted, and a lock. Then I created the PresentChain class which is the concurrent linked list implementation. This class implements insertion, deletion, and a contains method. When the insert and delete method are called the method uses a lock while an item is being inserted or deleted. For the deletion method the node is first deleted logically then removed from the linked list and the neighboring nodes are linked to each other. This program could be improved by fixing the bugs in the deletion method. The deletion method gives errors when multiple nodes are deleting different elements. I also could have deleted items that is either on the head or the tail since the problem statement was vague on which nodes had to be deleted. The shuffle method also has poor performance as the items could have been inserted in random order in the first place to create the unordered bag. Overall, my solution is better than the Minatour's solution because this implementation uses locks which would prevent the servants from having more presents than “Thank you” notes.
